@@ -1,0 +1,92 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: black;
+    padding: 10px 10px 10px 10px;
+}
+marquee{
+    margin: 10px 10px 10px 10px;
+    color: white;
+}
+.switch h1{
+    text-align: center;
+    color: white;
+}
+.switch i{
+    color: white;
+}
+i{
+    cursor: pointer;
+}
+#body{
+    display: flex;
+    justify-content: space-between;
+    width: 95%;
+    height: 350px;
+    background-color: rgb(255, 255, 255);
+    margin: 0 auto;
+    border-radius: 20px;
+}
+#body #input_output{
+    width: 60%;
+    text-align: center;
+    border-right: 3px solid black;
+    padding-top: 10px;
+}
+#body #input_output input{
+    width: 60%;
+    background: none;
+    border-radius: 20px;
+    border: 3px solid black;
+    padding-left: 10px;
+    height: 30px;
+}
+#body #input_output button{
+    width: 60px;
+    text-align: center;
+    background: none;
+    border-radius: 20px;
+    border: 3px solid black;
+    margin-top: 10px;
+}
+#body #input_output button:hover{
+    background: none;
+    color: aqua;
+    border: 3px solid aqua;
+    box-shadow: 0 0 1rem 3px aqua;
+    transition: all 1s;
+}
+#body #note{
+    width: 40%;
+    text-align: center;
+    border-left: 3px solid black;
+}
+select{
+    background: none;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+select option{
+    background: none;
+    border: 3px solid black;
+    text-align: center;
+}
+::placeholder{
+    color: black;
+}
+#note_text{
+    text-align: left;
+    margin-left: 5px;
+}
+#body #input_output h1{
+    font-size: clamp(20px,20px,30px);
+}
+#note_text h2{
+    font-size: clamp(15px,20px,30px);
+}
+#note_text h3{
+    font-size: clamp(10px,20px,30px);
+}

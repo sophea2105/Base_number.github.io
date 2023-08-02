@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Base to Base</title>
+    <link rel="stylesheet" href="base_to_base.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <marquee behavior="alternate">Made by Srean Ousophea</marquee>
+    <a href="index.html"><h1><i class='bx bx-arrow-back' style="color: aliceblue;cursor: pointer;"></i></h1></a>
+    <div id="body">
+        <br>    
+        <h1 style="color: black; text-align: center; margin: 0px 0 20px 0;"><i>Project</i></h1>
+        <div class="choose">
+            <select id="first">
+                <option value="1">Base 2</option>
+                <option value="2">Base 8</option>
+                <option value="3">Base 16</option>
+            </select>
+            <h2>to</h2>
+            <select id="second">
+                <option value="4">Base 2</option>
+                <option value="5">Base 8</option>
+                <option value="6">Base 16</option>
+            </select>
+        </div>
+        <br><br>
+        <div class="input_output">
+            <input type="text" placeholder="Number" id="number">
+        </div>
+        <div class="submit">
+            <br>
+            <button onclick="submit1();" id="submit">Submit</button>
+        </div>
+        <br>
+        <h1 id="result" style="text-align: center;"></h1>
+        <h1 id="h" style="color: black;display: none; "></h1>
+        <h1 id="h1" style="color: black;display: none; "></h1>
+        <h1 id="h2" style="color: black;display: none; "></h1>
+        
+        
+        
+    </div>
+</body>
+<script>
+    function submit1(){
+        var first = document.getElementById("first").value;
+        var second = document.getElementById("second").value;
+        var num = document.getElementById("number").value;
+        h.innerHTML = "";
+        h1.innerHTML = "";
+        h2.innerHTML = "";
+        let total = 0;
+        let a = num.length;
+        if(first == 1){
+            if(second == 4){
+                // base2 to base2
+                document.getElementById("result").innerHTML ="("+num+")<sub>2</sub> = ("+num+")<sub>2</sub>" ;
+            }else if(second == 5){
+                // base2 to base 8
+                for(let i = 0;i<num.length; i++){
+                    if(num[i]>=0){
+                        if(num[i]<2){
+                            
+                        }
+                    }
+                }
+                for(let i = 0;i<num.length; i++){
+                    if(num[i]>=0){
+                        if(num[i]<2){
+                            if(num[i] == 1){
+                                b = num[i]*Math.pow(2,(a-1)-i);
+                            }else{
+                                b = 0;
+                            }
+                            total = total + b;
+                        }
+                    }
+                }
+                document.getElementById("h").innerHTML = total;
+                var text = document.getElementById("h").innerHTML;
+                var answer = text%8;
+                document.getElementById("h1").innerHTML += answer;
+                do{
+                    text = Math.trunc(text/8);
+                    var mod = text%8;
+                    document.getElementById("h1").innerHTML += mod;
+                }while(text >8);
+                var text1 = h1.innerHTML;
+                var i = text1.length;
+                for(i; i>0;i--){
+                    document.getElementById("h2").innerHTML+= text1[i-1]; 
+                }  
+                var final = h2.innerHTML;
+                document.getElementById("result").innerHTML ="("+num+")<sub>2</sub> = ("+final+")<sub>8</sub>" ;
+            }else if(second == 6){
+                // base2 to base16
+                for(let i = 0;i<num.length; i++){
+                    if(num[i]>=0){
+                        if(num[i]<2){
+                            if(num[i] == 1){
+                                b = num[i]*Math.pow(2,(a-1)-i);
+                            }else{
+                                b = 0;
+                            }
+                            total = total + b;
+                        }
+                    }
+                }
+                document.getElementById("h").innerHTML = total;
+                var text = document.getElementById("h").innerHTML;
+                var c = text%16;
+                    if(c == 10){
+                        c = 'A';
+                    }else if(c==11){
+                        c = 'B';
+                    }else if(c==12){
+                        c = 'C';
+                    }else if(c==13){
+                        c = 'D';
+                    }else if(c==14){
+                        c = 'E';    
+                    }else if(c==15){
+                        c = 'F';
+                    }
+                document.getElementById("h1").innerHTML += c;
+                do{
+                    text = Math.trunc(text/16);
+                    var b = text%16;
+                    if(b == 10){
+                        b = 'A';
+                    }else if(b==11){
+                        b = 'B';
+                    }else if(b==12){
+                        b = 'C';
+                    }else if(b==13){
+                        b = 'D';
+                    }else if(b==14){
+                        b = 'E';    
+                    }else if(b==15){
+                        b = 'F';
+                    }
+                    document.getElementById("h1").innerHTML += b;
+                }while(text >16);
+                var text1 = h1.innerHTML;
+                var i = text1.length;
+                for(i; i>0;i--){
+                    document.getElementById("h2").innerHTML+= text1[i-1]; 
+                }
+                var final = h2.innerHTML;
+                document.getElementById("result").innerHTML ="("+num+")<sub>2</sub> = ("+final+")<sub>16</sub>" ;
+            }          
+        }else if(first == 2){
+            if(second == 4){
+                // base8 to base2
+                for(let i = 0;i<num.length; i++){
+                    if(num[i]>=0){
+                        if(num[i]<8){
+                            b = num[i]*Math.pow(8,(a-1)-i);
+                            total = total + b;
+                        }
+                    }
+                }
+                document.getElementById("h").innerHTML = total;
+                var text = document.getElementById("h").innerHTML;
+                var answer = text%2;
+                document.getElementById("h1").innerHTML += answer;
+                do{
+                    text = Math.trunc(text/2);
+                    var mod = text%2;
+                    document.getElementById("h1").innerHTML += mod;
+                }while(text >1);
+                var text1 = h1.innerHTML;
+                var i = text1.length;
+                for(i; i>0;i--){
+                    document.getElementById("h2").innerHTML+= text1[i-1]; 
+                }  
+                var final = h2.innerHTML;
+                document.getElementById("result").innerHTML ="("+num+")<sub>8</sub> = ("+final+")<sub>2</sub>" ;
+            }else if(second == 5){
+                // base8 to base 8
+                document.getElementById("result").innerHTML ="("+num+")<sub>8</sub> = ("+num+")<sub>8</sub>" ;
+            }else if(second == 6){
+                // base8 to base16
+                for(let i = 0;i<num.length; i++){
+                    if(num[i]>=0){
+                        if(num[i]<8){
+                            b = num[i]*Math.pow(8,(a-1)-i);
+                            total = total + b;
+                        }
+                    }
+                }
+                document.getElementById("h").innerHTML = total;
+                var text = document.getElementById("h").innerHTML;
+                var c = text%16;
+                    if(c == 10){
+                        c = 'A';
+                    }else if(c==11){
+                        c = 'B';
+                    }else if(c==12){
+                        c = 'C';
+                    }else if(c==13){
+                        c = 'D';
+                    }else if(c==14){
+                        c = 'E';    
+                    }else if(c==15){
+                        c = 'F';
+                    }
+                document.getElementById("h1").innerHTML += c;
+                do{
+                    text = Math.trunc(text/16);
+                    var b = text%16;
+                    if(b == 10){
+                        b = 'A';
+                    }else if(b==11){
+                        b = 'B';
+                    }else if(b==12){
+                        b = 'C';
+                    }else if(b==13){
+                        b = 'D';
+                    }else if(b==14){
+                        b = 'E';    
+                    }else if(b==15){
+                        b = 'F';
+                    }
+                    document.getElementById("h1").innerHTML += b;
+                }while(text >16);
+                var text1 = h1.innerHTML;
+                var i = text1.length;
+                for(i; i>0;i--){
+                    document.getElementById("h2").innerHTML+= text1[i-1]; 
+                }
+                var final = h2.innerHTML;
+                document.getElementById("result").innerHTML ="("+num+")<sub>8</sub> = ("+final+")<sub>16</sub>" ;
+            }
+        }else if(first == 3){
+            if(second == 4){
+                // base16 to base2
+                for(var i = 0; i<num.length; i++){
+                      if(num[i]>=0 || num[i]=='A' ||num[i]=='B'||num[i]=="C" ||num[i]=='D' ||num[i]=='E'|| num[i]=='F'){
+                        if(num[i]== 0){
+                            b= 0*Math.pow(16,(a-1)-i);
+                            num1 = 0;
+                        }else if(num[i]== 1){
+                            b= 1*Math.pow(16,(a-1)-i);
+                            num1 = 1;
+                        }else if(num[i]== 2){
+                            b= 2*Math.pow(16,(a-1)-i);
+                            num1 = 2;
+                        }else if(num[i]== 3){
+                            b= 3*Math.pow(16,(a-1)-i);
+                            num1 = 3;
+                        }else if(num[i]== 4){
+                            b= 4*Math.pow(16,(a-1)-i);
+                            num1 = 4;
+                        }else if(num[i]== 5){
+                            b= 5*Math.pow(16,(a-1)-i);
+                            num1 = 5;
+                        }else if(num[i]== 6){
+                            b= 6*Math.pow(16,(a-1)-i);
+                            num1 = 6;
+                        }else if(num[i]== 7){
+                            b= 7*Math.pow(16,(a-1)-i);
+                            num1 = 7;
+                        }else if(num[i]== 8){
+                            b= 8*Math.pow(16,(a-1)-i);
+                            num1 = 8;
+                        }else if(num[i]== 9){
+                            b= 9*Math.pow(16,(a-1)-i);
+                            num1 = 9;
+                        }else if(num[i]== 'A'){
+                            b= 10*Math.pow(16,(a-1)-i);
+                            num1 = 10;
+                        }else if(num[i]== 'B'){
+                            b= 11*Math.pow(16,(a-1)-i);
+                            num1 = 11;
+                        }else if(num[i]== 'C'){
+                            b= 12*Math.pow(16,(a-1)-i);
+                            num1 = 12;
+                        }else if(num[i]== 'D'){
+                            b= 13*Math.pow(16,(a-1)-i);
+                            num1 = 13;
+                        }else if(num[i]== 'E'){
+                            b= 14*Math.pow(16,(a-1)-i);
+                            num1 = 14;
+                        }else if(num[i]== 'F'){
+                            b= 15*Math.pow(16,(a-1)-i);
+                            num1 = 15;
+                        }
+                        total = total + b;
+                      }
+                    document.getElementById("h").innerHTML = total;
+                    var text = document.getElementById("h").innerHTML;
+                }
+                var answer = text%2;
+                    document.getElementById("h1").innerHTML += answer;
+                do{
+                    text = Math.trunc(text/2);
+                    var mod = text%2;
+                    document.getElementById("h1").innerHTML += mod;
+                }while(text >1);
+                var text1 = h1.innerHTML;
+                var i = text1.length;
+                for(i; i>0;i--){
+                    document.getElementById("h2").innerHTML+= text1[i-1]; 
+                }  
+                var final = h2.innerHTML;
+                document.getElementById("result").innerHTML ="("+num+")<sub>16</sub> = ("+final+")<sub>2</sub>" ;
+            }else if(second == 5){
+                // base16 to base 8
+                for(var i = 0; i<num.length; i++){
+                      if(num[i]>=0 || num[i]=='A' ||num[i]=='B'||num[i]=="C" ||num[i]=='D' ||num[i]=='E'|| num[i]=='F'){
+                        if(num[i]== 0){
+                            b= 0*Math.pow(16,(a-1)-i);
+                            num1 = 0;
+                        }else if(num[i]== 1){
+                            b= 1*Math.pow(16,(a-1)-i);
+                            num1 = 1;
+                        }else if(num[i]== 2){
+                            b= 2*Math.pow(16,(a-1)-i);
+                            num1 = 2;
+                        }else if(num[i]== 3){
+                            b= 3*Math.pow(16,(a-1)-i);
+                            num1 = 3;
+                        }else if(num[i]== 4){
+                            b= 4*Math.pow(16,(a-1)-i);
+                            num1 = 4;
+                        }else if(num[i]== 5){
+                            b= 5*Math.pow(16,(a-1)-i);
+                            num1 = 5;
+                        }else if(num[i]== 6){
+                            b= 6*Math.pow(16,(a-1)-i);
+                            num1 = 6;
+                        }else if(num[i]== 7){
+                            b= 7*Math.pow(16,(a-1)-i);
+                            num1 = 7;
+                        }else if(num[i]== 8){
+                            b= 8*Math.pow(16,(a-1)-i);
+                            num1 = 8;
+                        }else if(num[i]== 9){
+                            b= 9*Math.pow(16,(a-1)-i);
+                            num1 = 9;
+                        }else if(num[i]== 'A'){
+                            b= 10*Math.pow(16,(a-1)-i);
+                            num1 = 10;
+                        }else if(num[i]== 'B'){
+                            b= 11*Math.pow(16,(a-1)-i);
+                            num1 = 11;
+                        }else if(num[i]== 'C'){
+                            b= 12*Math.pow(16,(a-1)-i);
+                            num1 = 12;
+                        }else if(num[i]== 'D'){
+                            b= 13*Math.pow(16,(a-1)-i);
+                            num1 = 13;
+                        }else if(num[i]== 'E'){
+                            b= 14*Math.pow(16,(a-1)-i);
+                            num1 = 14;
+                        }else if(num[i]== 'F'){
+                            b= 15*Math.pow(16,(a-1)-i);
+                            num1 = 15;
+                        }
+                        total = total + b;
+                      }
+                      document.getElementById("h").innerHTML = total;
+                    var text = document.getElementById("h").innerHTML;
+                }
+                var answer = text%8;
+                document.getElementById("h1").innerHTML += answer;
+                do{
+                    text = Math.trunc(text/8);
+                    var mod = text%8;
+                    document.getElementById("h1").innerHTML += mod;
+                }while(text >8);
+                var text1 = h1.innerHTML;
+                var i = text1.length;
+                for(i; i>0;i--){
+                    document.getElementById("h2").innerHTML+= text1[i-1]; 
+                }  
+                var final = h2.innerHTML;
+                document.getElementById("result").innerHTML ="("+num+")<sub>16</sub> = ("+final+")<sub>8</sub>" ;
+            }else if(second == 6){
+                // base16 to base16
+                document.getElementById("result").innerHTML ="("+num+")<sub>16</sub> = ("+num+")<sub>16</sub>" ;
+            }
+        }
+    }
+</script>
+</html>

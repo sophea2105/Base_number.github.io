@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="number.css">
+</head>
+<body>
+    <marquee behavior="alternate"><h2>Made by Srean Ousophea</h2></marquee>
+    <a href="index.html"><h1><i class='bx bx-arrow-back' style="color: aliceblue;cursor: pointer;"></i></h1></a>
+    <div class="switch">
+        <h1 id="switch"></h1>
+        <h1 id="a" style="display: none;">Desimal</h1>
+        <h1 id="b" style="display: none;"><a href="base.html"><i class='bx bx-transfer'></i></a></h1>
+        <h1 id="c" style="display: none;">Base</h1>
+    </div>
+    <div id="body">
+        <div id="input_output">
+            <h1><u><i>Project</i></u></h1>
+            <br>
+            <input type="text" id="text" placeholder="Number">
+            <select id="select" onclick="select()">
+                <option value="1">2</option>
+                <option value="2">8</option>
+                <option value="3">16</option>
+            </select><br>
+            <button onclick="submit()">Convert</button>
+            <h1 id="result1" style="display: none;"></h1>
+            <h1 id="result"  style="display: none;"></h1>
+            <h1 id="results"></h1>
+        </div>
+    </div>
+    <script>
+        var a = document.getElementById("a").innerHTML;
+        var b = document.getElementById("b").innerHTML;
+        var c = document.getElementById("c").innerHTML;
+        document.getElementById("switch").innerHTML= a+b+c;
+        function submit(){
+            var text = document.getElementById("text").value;
+            var sel = document.getElementById("select").value;
+            document.getElementById("result1").innerHTML ="";
+            document.getElementById("result").innerHTML ="";
+            document.getElementById("results").innerHTML ="";
+            if(sel == 1){
+                if(text == ""){
+                document.getElementById("results").innerHTML ="";
+            }
+                let a = text;
+                var c = text%2;
+                document.getElementById("result1").innerHTML += c;
+                do{
+                    a = Math.trunc(a/2);
+                    var b = a%2;
+                    document.getElementById("result1").innerHTML += b;
+                }while(a >1);
+                var text1 = result1.innerHTML;
+                var i = text1.length;
+                for(i; i>0;i--){
+                    document.getElementById("result").innerHTML+= text1[i-1]; 
+                }  
+                var results = document.getElementById("result").innerHTML;
+                var c = document.getElementById("text").value;
+                document.getElementById("results").innerHTML = c+" = ("+results+")<sub>2</sub>";
+            }else if(sel == 2){
+                if(text == ""){
+                document.getElementById("results").innerHTML ="";
+            }
+                let a = text;
+                var c = text%8;
+                document.getElementById("result1").innerHTML += c;
+                do{
+                    a = Math.trunc(a/8);
+                    var b = a%8;
+                    document.getElementById("result1").innerHTML += b;
+                }while(a >8);
+                var text1 = result1.innerHTML;
+                var i = text1.length;
+                for(i; i>0;i--){
+                    document.getElementById("result").innerHTML+= text1[i-1]; 
+                }  
+                var results = document.getElementById("result").innerHTML;
+                var c = document.getElementById("text").value;
+                document.getElementById("results").innerHTML = c+" = ("+results+")<sub>8</sub>";
+            }else if(sel == 3){
+                if(text == ""){
+                document.getElementById("results").innerHTML ="";
+            }
+                let a = text;
+                var c = text%16;
+                    if(c == 10){
+                        c = 'A';
+                    }else if(c==11){
+                        c = 'B';
+                    }else if(c==12){
+                        c = 'C';
+                    }else if(c==13){
+                        c = 'D';
+                    }else if(c==14){
+                        c = 'E';    
+                    }else if(c==15){
+                        c = 'F';
+                    }
+                document.getElementById("result1").innerHTML += c;
+                do{
+                    a = Math.trunc(a/16);
+                    var b = a%16;
+                    if(b == 10){
+                        b = 'A';
+                    }else if(b==11){
+                        b = 'B';
+                    }else if(b==12){
+                        b = 'C';
+                    }else if(b==13){
+                        b = 'D';
+                    }else if(b==14){
+                        b = 'E';    
+                    }else if(b==15){
+                        b = 'F';
+                    }
+                    document.getElementById("result1").innerHTML += b;
+                }while(a >16);
+                var text1 = result1.innerHTML;
+                var i = text1.length;
+                for(i; i>0;i--){
+                    document.getElementById("result").innerHTML+= text1[i-1]; 
+                } 
+                var results = document.getElementById("result").innerHTML;
+                var c = document.getElementById("text").value;
+                document.getElementById("results").innerHTML = c+" = ("+results+")<sub>16</sub>";
+            }
+            
+        }
+    </script>
+</body>
+</html>
